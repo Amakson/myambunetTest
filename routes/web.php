@@ -10,11 +10,11 @@ View::share('user', App\User::all());
 
 Route::patch('/blog/{id}', 'BlogController@publish');
 
-Route::get('/', ['as' => '/', 'uses' => 'CategoryController@index']);
+// Route::get('/', ['as' => '/', 'uses' => 'CategoryController@index']);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
