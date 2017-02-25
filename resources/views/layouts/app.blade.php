@@ -17,10 +17,13 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/effects.css" rel="stylesheet">
     <link href="/css/sweetalert.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <link href="{{ asset('/css/style.css') }}" media="all" rel="stylesheet" type="text/css" /> --}}
 
     <!-- Scripts -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -52,32 +55,13 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-left">
-                        {{-- <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Categories <span class="caret"></span></a>
-
-                            @if ($c)
-                            <ul class="dropdown-menu" role="menu">
-                            @foreach ($c as $c)
-                                @if ($c->blog->count() > 0)
-                                        <li><a href="{{ route('categories.show', $c->slug) }}">{{ $c->name }}</a></li>
-                                @endif
-                            @endforeach
-                            </ul>
-                            @endif
-
-                        </li> --}}
-                        {{-- @if (Auth::user())
-                            <li><a href="{{ url('/users/') }}">Dashboard</a></li>
-                        @endif --}}
 
                         @if (Auth::user() ? Auth::user()->role->id === 1 : '')
                             <li><a href="{{ url('/admin') }}">Admin</a></li>
                         @endif
-
-                        {{-- <li><a href="{{ url('/contact') }}">Contact</a></li> --}}
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                   <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
 
                         <!-- Authentication Links -->
@@ -87,30 +71,41 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-                        
-                            <li><a href="#"><i class="fa fa-envelope-o"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-btn fa-bell"></i></a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-table"></i> 
+                                    <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
-                                    {{-- <li> <a href="#"> Dashboard</a></li> --}}
-                                    @if (Auth::user())
-                            <li><a href="{{ url('/users/') }}">Dashboard</a></li>
-                                    @endif
                                     <li> <a href="http://myambunet.com/availablemedics.html"> Available Medics</a></li>
                                     <li> <a href="http://myambunet.com/openschedules.html"> Open Schedules</a></li>
-                                    <li> <a href="#"> Subscription</a></li>
+                                </ul>        
+                            </li>    
+                            <li><a href="#"><i class="fa fa-calendar"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa fa-bell-o"></i></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-user-o"></i> 
+                                    {{-- {{ Auth::user()->name }} --}} 
+                                    <span class="caret"></span>
+                                </a>
+
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li> &nbsp<i class="fa fa-user-circle"></i>&nbsp{{ Auth::user()->name }}
+                                    @if (Auth::user())
+                                    <a style="text-align: center;" href="{{ url('/users/') }}"> View Profile</a></li>
+                                    @endif
                                     <hr>
-                                    <li><a href="{{ url('/contact') }}">Email Us</a></li>
+                                    <li><a href="#"><i class="fa fa-credit-card"></i> Subscription</a></li>
+                                    <hr>
+                                    <li><a href="{{ url('/contact') }}"><i class="fa fa-envelope-o"></i>   Email Us</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <i class="fa fa-sign-out"></i> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -144,5 +139,12 @@
                 });
         @endif
     </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="src/js/jquery.placepicker.js"></script>
+<script type="text/javascript" src="https://<a href=http://www.jqueryscript.net/tags.php?/map/">map</a>s.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
+<script>
+    $(".placepicker").placepicker();
+
+</script>
 </body>
 </html>

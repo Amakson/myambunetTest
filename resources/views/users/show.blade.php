@@ -7,11 +7,34 @@
             <div class="col-sm-8">
                 <h1>{{ $user->name }}</h1>
                 <p>{{ $user->role->name }}</p>
-                @if ($user->blog->count() > 0) <button class="btn btn-primary btn-xs">{{ $user->blog->count() }} Blogs</button> @endif
+                @if ($user->blog->count() > 0) <button class="btn btn-primary btn-xs">{{ $user->blog->count() }} Blogs</button> 
+                @endif
             </div>
             <div class="col-sm-4">
             <br><br>
                 <img class="img-circle" height="100" width="100" src="/images/{{ $user->photo ? $user->photo->photo : 'default.png' }}" alt="">
+            </div>
+             <div class="col-sm-4">
+              <ul class="list-unstyled">
+    @if ($user->location)
+                <li> <span style="color: #74ccef" class="glyphicon glyphicon-map-marker"></span> {{ $user->location }}</li>
+            @endif
+            @if ($user->tel)
+                <li> <span style="color: #74ccef" class="glyphicon glyphicon-envelope"></span>
+                 {{ $user->tel }}</li>
+            @endif
+            @if ($user->cert_Level)
+                <li> <span style="color: #74ccef" class="glyphicon glyphicon-phone"></span>
+                {{ $user->cert_Level }}</li>
+            @endif
+             @if ($user->licence_number)
+                <li> <span style="color: #74ccef" class="glyphicon glyphicon-list"></span>
+                {{ $user->licence_number }}</li>
+            @endif
+            @if ($user->availability)
+                <li> <span style="color: #74ccef" class="glyphicon glyphicon-map-marker"></span> {{ $user->availability }}</li>
+            @endif
+</ul>
             </div>
         </div>
     </div>

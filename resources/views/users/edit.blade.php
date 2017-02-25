@@ -20,6 +20,28 @@
                     {!! Form::label("about", "About") !!}
                     {!! Form::textarea("about", null, ['class' => 'form-control', 'placeholder' => 'Write about yourself']) !!}
                 </div>
+                {{-- new start --}}
+                <div class="form-group">
+                    {!! Form::label("address", "Address") !!}
+                    {!! Form::text("address", null, ['class' => 'form-control', 'placeholder' => 'Place your address here']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label("location", "Location") !!}
+                    {!! Form::text("location", null, ['class' => 'form-control', 'placeholder' => 'Enter your location here']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label("tel", "Phone") !!}
+                    {!! Form::text("tel", null, ['class' => 'form-control', 'placeholder' => 'Enter your tel url']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label("cert_Level", "Level") !!}
+                    {!! Form::text("cert_Level", null, ['class' => 'form-control', 'placeholder' => 'Enter your cert_Level here']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label("licence_number", "Github") !!}
+                    {!! Form::text("licence_number", null, ['class' => 'form-control', 'placeholder' => 'Enter licence number here']) !!}
+                </div>
+                {{-- new end --}}
                 <div class="form-group">
                     {!! Form::label("website", "Website") !!}
                     {!! Form::url("website", null, ['class' => 'form-control', 'placeholder' => 'Paste your website url']) !!}
@@ -49,9 +71,25 @@
                 </div>
             {!! Form::close() !!}
         </div>
-    </div>
+        <div class="form-group">
+
+<input class="placepicker form-control" data-map-container-id="collapseOne"/>
+
+        </div>
+
+        <div id="collapseOne" class="collapse">
+
+            <div class="placepicker-map thumbnail"></div>
+
+        </div>
+
+            </div>
 
 
 </main>
+<script>
+    $(".placepicker").placepicker();
+
+</script>
 
 @endsection

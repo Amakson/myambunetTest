@@ -28,7 +28,7 @@
     <div class="col-sm-7">
         @if ($user = Auth::user())
             @if ($user->blog)
-            <h1 class="page-header">Latest Blogs</h1>
+            <h1 class="page-header">Schedules</h1>
                 <ul>
                     @foreach ($blog as $blog)
                         @if ($blog->user_id == $user->id)
